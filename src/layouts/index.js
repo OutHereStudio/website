@@ -5,12 +5,6 @@ import Footer from 'components/Footer';
 
 import './gatsby.css';
 
-var redirect = sessionStorage.redirect;
-delete sessionStorage.redirect;
-if (redirect && redirect != location.href) {
-  history.replaceState(null, null, redirect);
-}
-
 const keywords = [
   'software',
   'games',
@@ -22,6 +16,35 @@ const keywords = [
   'out here archery',
   'out here'
 ].join(',');
+
+// https://github.com/rafrex/spa-github-pages
+if (typeof window !== 'undefined') {
+  (function(l) {
+    if (l.search) {
+      var q = {};
+      l.search
+        .slice(1)
+        .split('&')
+        .forEach(function(v) {
+          var a = v.split('=');
+          q[a[0]] = a
+            .slice(1)
+            .join('=')
+            .replace(/~and~/g, '&');
+        });
+      if (q.p !== undefined) {
+        window.history.replaceState(
+          null,
+          null,
+          l.pathname.slice(0, -1) +
+            (q.p || '') +
+            (q.q ? '?' + q.q : '') +
+            l.hash
+        );
+      }
+    }
+  })(window.location);
+}
 
 const TemplateWrapper = ({ children }) => (
   <div>
