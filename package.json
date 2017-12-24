@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop",
-    "publish": "npm run build && gh-pages -d public"
+    "deploy": "npm run build && gh-pages -d public"
   },
   "dependencies": {
     "@jacobmischka/gatsby-plugin-react-svg": "^1.0.0",
