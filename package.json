@@ -1,0 +1,29 @@
+{
+  "name": "out-here-site",
+  "description": "Out Here Studio website",
+  "version": "1.0.0",
+  "author": "Louis DeScioli <louis@outhere.studio>",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "publish": "npm run build && gh-pages -d public"
+  },
+  "dependencies": {
+    "@jacobmischka/gatsby-plugin-react-svg": "^1.0.0",
+    "gatsby": "^1.9.145",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-google-analytics": "^1.0.14",
+    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-resolve-src": "^1.0.0",
+    "gatsby-plugin-sass": "^1.0.15",
+    "gatsby-plugin-styled-components": "^2.0.4",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
+    "styled-components": "^2.4.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
