@@ -1,5 +1,6 @@
 import React from 'react';
 import links from 'lib/links';
+import Page from 'components/Page';
 
 export default class Archery extends React.Component {
   componentDidMount() {
@@ -7,6 +8,10 @@ export default class Archery extends React.Component {
   }
 
   render() {
-    return null;
+    return (
+      <Page>
+        <h1>Sending you to the App Store...</h1>
+      </Page>
+    );
   }
 }
