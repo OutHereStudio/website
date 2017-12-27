@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 import colors from 'style/colors';
 import { media } from 'style/sizes';
-import Link from 'gatsby-link';
 import links from 'lib/links';
-import Logo from 'components/logo.svg';
+import Logo from 'images/logo.svg';
 
 const FooterContainer = styled.footer`
   background-color: ${colors.navy};

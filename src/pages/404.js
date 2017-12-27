@@ -1,10 +1,10 @@
 import React from 'react';
+import Page from 'components/Page';
 
-export default class NotFoundPage extends React.Component {
-  componentDidMount() {
-    window.location = '/';
-  }
-  render() {
-    return null;
-  }
-}
+const NotFoundPage = () => (
+  <Page>
+    <h1>Page Not Found</h1>
+  </Page>
+);
+
+export default NotFoundPage;

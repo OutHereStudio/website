@@ -4,18 +4,18 @@ import styled from 'styled-components';
 import { fadeUpIn, stretchFull } from 'style/snippets';
 import colors from 'style/colors';
 import { fade } from 'style/animations';
-import outHereImg1 from './outHereBg1.jpg';
-import outHereImg2 from './outHereBg2.jpg';
-import outHereImg3 from './outHereBg3.jpg';
-import outHereImg4 from './outHereBg4.jpg';
-import Logo from 'components/logo.svg';
-import AppStoreBadge from './appStoreBadge.svg';
+import outHereImg1 from 'images/outHereBg1.jpg';
+import outHereImg2 from 'images/outHereBg2.jpg';
+import outHereImg3 from 'images/outHereBg3.jpg';
+import outHereImg4 from 'images/outHereBg4.jpg';
+import Logo from 'images/logo.svg';
+import AppStoreBadge from 'images/appStoreBadge.svg';
 import links from 'lib/links';
-import { media } from 'style/sizes';
+import BrSm from 'components/BrSm';
+import BrMd from 'components/BrMd';
 
 const getRandomImg = () => {
   const imgs = [outHereImg1, outHereImg2, outHereImg3, outHereImg4];
-
   const index = Math.floor(Math.random() * imgs.length);
   return imgs[index];
 };
@@ -73,19 +73,6 @@ const ImgBackground = styled.div`
   }
 `;
 
-const BrSm = styled.br`
-  ${media.small`
-    display: none;
-  `};
-`;
-
-const BrM = styled.br`
-  display: none;
-  ${media.small`
-    display: inherit;
-  `};
-`;
-
 const TopPane = () => (
   <Panel>
     <TextGroup>
@@ -106,15 +93,6 @@ const Section = styled.section`
   flex-flow: column;
 `;
 
-const MissionPane = Section.extend`
-  svg {
-    margin-top: 50px;
-    margin-bottom: 10px;
-    height: 60px;
-    fill: white;
-  }
-`;
-
 const MissionText = styled.h2`
   max-width: 600px;
   font-size: 2em;
@@ -122,15 +100,15 @@ const MissionText = styled.h2`
 `;
 
 const Mission = () => (
-  <MissionPane>
+  <Section>
     <MissionText>
-      We make software <BrSm />that <BrM />
+      We make software <BrSm />that <BrMd />
       brings people closer together <br />
       with each other, <br />
       their communities, <br />
       and the natural world.
     </MissionText>
-  </MissionPane>
+  </Section>
 );
 
 const DownloadPane = Section.extend`
