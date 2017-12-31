@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import { fadeUpIn, stretchFull } from 'style/snippets';
@@ -17,6 +18,7 @@ import BrMd from 'components/BrMd';
 const getRandomImg = () => {
   const imgs = [outHereImg1, outHereImg2, outHereImg3, outHereImg4];
   const index = Math.floor(Math.random() * imgs.length);
+  console.log('get random img, index', index);
   return imgs[index];
 };
 
@@ -56,10 +58,10 @@ const makeText = delay => AnimatedText.extend`
 const OutText = makeText(1.3);
 const HereText = makeText(2);
 
-const ImgBackground = styled.div`
+const Background = styled.div`
   ${stretchFull};
-  background-image: url(${getRandomImg()});
   background-size: cover;
+  background-image: url(${props => props.img});
   background-position: center right;
   z-index: -1;
   position: fixed;
@@ -72,6 +74,20 @@ const ImgBackground = styled.div`
     animation: ${fade({ to: 0.1 })} 1s forwards 2s;
   }
 `;
+
+Background.propTypes = {
+  img: PropTypes.string.isRequired
+};
+
+class ImgBackground extends React.Component {
+  state = {
+    img: getRandomImg()
+  };
+
+  render() {
+    return <Background img={this.state.img} />;
+  }
+}
 
 const TopPane = () => (
   <Panel>
