@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import { fadeUpIn, stretchFull } from 'style/snippets';
@@ -18,7 +17,6 @@ import BrMd from 'components/BrMd';
 const getRandomImg = () => {
   const imgs = [outHereImg1, outHereImg2, outHereImg3, outHereImg4];
   const index = Math.floor(Math.random() * imgs.length);
-  console.log('get random img, index', index);
   return imgs[index];
 };
 
@@ -61,7 +59,6 @@ const HereText = makeText(2);
 const Background = styled.div`
   ${stretchFull};
   background-size: cover;
-  background-image: url(${props => props.img});
   background-position: center right;
   z-index: -1;
   position: fixed;
@@ -75,17 +72,20 @@ const Background = styled.div`
   }
 `;
 
-Background.propTypes = {
-  img: PropTypes.string.isRequired
-};
-
 class ImgBackground extends React.Component {
   state = {
+    // this will produce the default server-rendered choice
     img: getRandomImg()
   };
 
+  componentDidMount() {
+    // setting state again will trigger re-render without
+    // getting rid of old DOM element. Only runs on client
+    this.setState({ img: getRandomImg() });
+  }
+
   render() {
-    return <Background img={this.state.img} />;
+    return <Background style={{ backgroundImage: `url(${this.state.img})` }} />;
   }
 }
 
