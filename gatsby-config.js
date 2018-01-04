@@ -21,6 +21,7 @@ module.exports = {
       options: {
         trackingId: 'UA-104606402-1'
       }
-    }
+    },
+    'gatsby-plugin-react-next'
   ]
 };

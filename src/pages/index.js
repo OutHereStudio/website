@@ -56,9 +56,8 @@ const makeText = delay => AnimatedText.extend`
 const OutText = makeText(1.3);
 const HereText = makeText(2);
 
-const ImgBackground = styled.div`
+const Background = styled.div`
   ${stretchFull};
-  background-image: url(${getRandomImg()});
   background-size: cover;
   background-position: center right;
   z-index: -1;
@@ -72,6 +71,23 @@ const ImgBackground = styled.div`
     animation: ${fade({ to: 0.1 })} 1s forwards 2s;
   }
 `;
+
+class ImgBackground extends React.Component {
+  state = {
+    // this will produce the default server-rendered choice
+    img: getRandomImg()
+  };
+
+  componentDidMount() {
+    // setting state again will trigger re-render without
+    // getting rid of old DOM element. Only runs on client
+    this.setState({ img: getRandomImg() });
+  }
+
+  render() {
+    return <Background style={{ backgroundImage: `url(${this.state.img})` }} />;
+  }
+}
 
 const TopPane = () => (
   <Panel>
