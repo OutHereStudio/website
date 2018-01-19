@@ -12,7 +12,6 @@ module.exports = {
       }
     },
     `gatsby-transformer-remark`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-resolve-src`,
     `@jacobmischka/gatsby-plugin-react-svg`,
@@ -22,6 +21,5 @@ module.exports = {
         trackingId: 'UA-104606402-1'
       }
     },
-    'gatsby-plugin-react-next'
   ]
 };
