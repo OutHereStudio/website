@@ -15,8 +15,7 @@ const TemplateWrapper = ({ children, data }) => {
   } = data.site.siteMetadata;
   return (
     <div>
-      <Head>
-        <title>{title}</title>
+      <Head titleTemplate={`%s | ${title}`} defaultTitle={title}>
         <meta name="keywords" content={keywords.join(',')} />
         <meta name="description" content={description} />
         <meta name="author" content={author} />

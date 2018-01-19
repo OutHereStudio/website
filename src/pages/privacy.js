@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from 'style/colors';
+import Head from 'react-helmet';
 
 export const pageQuery = graphql`
   query PrivacyQuery {
@@ -26,6 +27,9 @@ const PrivacyContainer = styled.main`
 
 const PrivacyPage = props => (
   <PrivacyContainer>
+    <Head>
+      <title>Privacy Policy</title>
+    </Head>
     <div
       className="content"
       dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
