@@ -1,7 +1,7 @@
 {
   "name": "out-here-site",
   "description": "Out Here Studio website",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Louis DeScioli <louis@outhere.studio>",
   "private": true,
   "license": "UNLICENSED",
