@@ -36,6 +36,7 @@ module.exports = {
         trackingId: 'UA-104606402-1'
       }
     },
-    'gatsby-plugin-react-next'
+    'gatsby-plugin-react-next',
+    'gatsby-plugin-netlify'
   ]
 };
